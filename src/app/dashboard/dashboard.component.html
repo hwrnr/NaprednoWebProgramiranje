@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div
+      *ngFor="let note of notes; let i = index"
+      class="col-md-6 col-lg-4 d-flex justify-content-center flex-column p-3"
+    >
+      <a routerLink="note/{{ i }}" class="nav-link">
+        <div class="single-note">
+          <h5>{{ note.name }}</h5>
+          <p>Created time: {{ note.createdTimeFormatted }}</p>
+          <p>Last edited time: {{ note.lastEditedTimeFormatted }}</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center flex-column p-3" >
+      <a class="d-flex justify-content-center align-items-center" routerLink="newNote">
+        <button class="btn btn-link btn-sm">
+          <fa-icon [icon]="faAdd" id="button-add"></fa-icon>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container" style="margin-top: 2em;">
+  <ul class="list-inline m-0">
+    <li class="list-inline-item">
+      <button class="btn btn-primary btn-sm" routerLink="edit">
+        <fa-icon [icon]="faEdit"></fa-icon>
+        Edit
+      </button>
+    </li>
+  </ul>
+  <div class="row note-view">
+    <div class="col-md-12">
+      <h1>{{ note.name }}</h1>
+      <p>Created time: {{ note.createdTimeFormatted }}</p>
+      <p>Last edited time: {{ note.lastEditedTimeFormatted }}</p>
+      <br/>
+      <h3>Text</h3>
+      <p>{{ note.text }}</p>
+    </div>
+  </div>
+</div>

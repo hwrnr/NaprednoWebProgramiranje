@@ -1,0 +1,17 @@
+p {
+  margin-bottom: 0;
+}
+
+#button-add {
+  font-size: 4em;
+}
+
+.single-note {
+  background-color: var(--fbc-light-gray);
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.single-note:hover {
+  background-color: unset;
+}
