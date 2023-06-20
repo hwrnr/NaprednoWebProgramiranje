@@ -17,6 +17,7 @@ import { AddNoteComponent } from './add-note/add-note.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoteViewComponent } from './note-view/note-view.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NoteViewComponent } from './note-view/note-view.component';
     AngularFirestoreModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

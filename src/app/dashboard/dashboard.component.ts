@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Note } from 'src/types/Note';
 import { FirenoteService } from '../services/firenote-service.service';
 import { faTrash, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../auth.service';
+import { CatService } from '../cat.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,13 @@ export class DashboardComponent {
   faEdit = faEdit;
   faAdd = faPlus;
 
-  constructor(private firenoteService: FirenoteService) {
+  fact = '';
+
+  constructor(
+    private firenoteService: FirenoteService,
+    private authService: AuthService,
+    private catService: CatService
+  ) {
     firenoteService
       .getAllNotes()
       .valueChanges()
@@ -29,5 +37,9 @@ export class DashboardComponent {
           this.notes.push(note);
         });
       });
+
+    this.catService.getCatFacts().subscribe((data: any) => {
+      this.fact = data[0].text;
+    });
   }
 }

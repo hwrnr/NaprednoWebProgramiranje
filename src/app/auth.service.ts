@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider, AuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+
+import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any;
-  constructor(public afAuth: AngularFireAuth, public router: Router) {
+  constructor(
+    public afAuth: AngularFireAuth,
+    public router: Router,
+    public http: HttpClient
+  ) {
     const temp = localStorage.getItem('user');
     if (temp) {
       this.userData = JSON.parse(temp);
@@ -24,6 +31,7 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+    console.log(this.userData);
   }
 
   // Sign in with Google

@@ -1,14 +1,23 @@
 <div class="container">
   <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">{{ fact }}</h1>
+    </div>
+  </div>
+  <div class="row">
     <div
       *ngFor="let note of notes; let i = index"
       class="col-md-6 col-lg-4 d-flex justify-content-center flex-column p-3"
     >
       <a routerLink="note/{{ i }}" class="nav-link">
-        <div class="single-note">
-          <h5>{{ note.name }}</h5>
-          <p>Created time: {{ note.createdTimeFormatted }}</p>
-          <p>Last edited time: {{ note.lastEditedTimeFormatted }}</p>
+        <div class="single-note card">
+          <div class="card-title">
+            <h5>{{ note.name }}</h5>
+          </div>
+          <div class="card-body">
+            <p>Created time: {{ note.createdTimeFormatted }}</p>
+            <p>Last edited time: {{ note.lastEditedTimeFormatted }}</p>
+          </div>
         </div>
       </a>
     </div>
